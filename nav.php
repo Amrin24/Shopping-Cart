@@ -1,59 +1,53 @@
- 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
   <a class="navbar-brand" href="index.php">UI-MONK</a>
 
   <!-- Links -->
   <ul class="navbar-nav ml-auto">
+    <li class="nav-item mt-2">
+      <a class="nav-link" href="index.php">Home</a>
+    </li>
+    <li class="nav-item mt-2">
+      <a class="nav-link" href="#">Shop</a>
+    </li>
+	<li class="nav-item dropdown  mt-2">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Category
+      </a>
+      <div class="dropdown-menu">
 
-    <li class="nav-item dropdown mt-2">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            Categories
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="categories.php">view Categories </a>
-          <a class="dropdown-item" href="addCategory.php">Add Categories</a> 
-        </div>
-      </li>
+	  <?php
+                  
+        
+                  $sql2 = "SELECT * FROM Category";
+                  $result2 = mysqli_query($conn, $sql2);
+              
+                
+                      // output data of each row
+                      while($row2 = mysqli_fetch_assoc($result2)) {
+              
+                          ?> 
+						  <a class="dropdown-item" href="index.php?id=<?php echo $row2["cat_id"] ?>"><?php echo  $row2["cat_name"] ?></a>
+
+			
+			
+                      <?php
+                      }
+                  
+                  ?>
+				 
 
 
-      <li class="nav-item dropdown mt-2">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            Products
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="products.php">view Products </a>
-          <a class="dropdown-item" href="addProducts.php">Add Products</a> 
-        </div>
-      </li>
+        
+      </div>
+    </li>
 
-      <li class="nav-item dropdown mt-2">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            Orders
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="orders.php">view Orders </a>
-          <a class="dropdown-item" href="addOrder.php">Add Orders</a> 
-        </div>
-      </li>
-
-      
-      <li class="nav-item dropdown mt-2">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            My Account
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="editProfile.php">Edit Profile </a>
-          <a class="dropdown-item" href="logout.php">Logout</a> 
-        </div>
-      </li>
-
-  <li class="nav-item mt-2">
-      <a class="nav-link" href="logout.php">Logout</a>
-    </li>  
-
-      
-      
+    <li class="nav-item mt-2">
+      <a class="nav-link" href="#">My Account</a>
+    </li>
+    <li class="nav-item mt-2">
+      <a class="nav-link" href="#">Contact</a>
+    </li>
 
     <!-- Dropdown -->
 
