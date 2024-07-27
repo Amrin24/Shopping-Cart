@@ -8,8 +8,6 @@ if(!isset($_SESSION['email']) && empty($_SESSION['email']) ){
 }
 ?>
 <?php include('inc/header.php') ?>
-
-
 <?php include('inc/nav.php') ?>
 
 
